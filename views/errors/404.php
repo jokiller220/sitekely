@@ -1,0 +1,1 @@
+<main class="container"><h1 class="page-title">Page introuvable</h1><p>La ressource demandée n’existe pas ou n’est plus disponible.</p><a class="button primary" href="<?=url()?>">Retour à l’accueil</a></main>

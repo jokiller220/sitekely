@@ -1,0 +1,1638 @@
+CAHIER DES CHARGES FONCTIONNEL ET TECHNIQUE
+
+MEDIA SPOTLIGHT
+
+Plateforme web multimédia — Vidéos, Podcasts et Partage pédagogique
+
+Version : 1.0
+Type de projet : Application web responsive
+Langue principale : Français
+Identité graphique : Violet, bleu, blanc, touches de vert
+Interfaces : Site public, User Panel, Teacher Panel, Admin Panel
+Modes d’affichage : Clair et sombre
+Statut : Cahier des charges de conception — à valider par le client
+
+⸻
+
+PARTIE I — PRÉSENTATION DU PROJET
+
+1. Contexte
+
+Media Spotlight est une plateforme web permettant aux étudiants, enseignants et créateurs de contenus pédagogiques de publier, consulter, organiser et partager des vidéos et podcasts.
+
+Le projet répond à un besoin de centralisation des productions multimédias, notamment dans un contexte académique.
+
+Un étudiant pourra, par exemple, enregistrer une vidéo de présentation, la publier sur Media Spotlight et transmettre un lien à son professeur.
+
+La plateforme devra être moderne, simple d’utilisation, rapide, sécurisée et accessible depuis les ordinateurs, smartphones et tablettes.
+
+2. Objectifs principaux
+
+* Permettre la publication de vidéos et podcasts.
+* Centraliser les contenus multimédias.
+* Faciliter le partage par lien.
+* Permettre aux enseignants de consulter les productions.
+* Proposer une expérience utilisateur moderne.
+* Permettre la communication entre utilisateurs.
+* Fournir un panneau d’administration complet.
+* Garantir la sécurité des données et des fichiers.
+* Offrir une interface responsive et accessible.
+
+3. Public cible
+
+Étudiants : publication de projets, présentations, vidéos pédagogiques et podcasts.
+
+Enseignants : consultation de contenus, suivi des productions et communication avec les étudiants.
+
+Visiteurs : découverte des contenus publics et présentation de la plateforme.
+
+Administrateurs : supervision des utilisateurs, contenus, signalements et paramètres.
+
+⸻
+
+PARTIE II — IDENTITÉ VISUELLE ET DESIGN UI/UX
+
+4. Direction artistique
+
+L’interface devra être fidèle à la maquette Media Spotlight conçue précédemment.
+
+Le style sera moderne, immersif, professionnel et inspiré des plateformes de streaming, tout en conservant une dimension pédagogique.
+
+Palette de couleurs
+
+Élément	Couleur
+Violet principal	#6C3BFF
+Violet secondaire	#8B5CF6
+Bleu principal	#2563EB
+Bleu foncé	#101A38
+Vert accent	#10B981
+Blanc	#FFFFFF
+Fond clair	#F6F7FB
+Fond sombre	#0B1020
+Texte principal	#172033
+Texte secondaire	#64748B
+
+Les couleurs pourront être affinées pendant l’intégration pour respecter au mieux les maquettes.
+
+5. Typographie
+
+Police principale : Inter ou Plus Jakarta Sans.
+
+* Titres : gras, modernes et lisibles.
+* Sous-titres : semi-gras.
+* Paragraphes : taille confortable.
+* Boutons : texte clair et contrasté.
+* Navigation : simple et cohérente.
+
+6. Composants graphiques
+
+La plateforme utilisera :
+
+* Des cartes multimédias avec miniatures.
+* Des boutons arrondis.
+* Des icônes modernes.
+* Des barres de recherche.
+* Des menus déroulants.
+* Des modales de confirmation.
+* Des notifications visuelles.
+* Des badges de statut.
+* Des graphiques statistiques.
+* Des tableaux administratifs.
+* Des effets de survol discrets.
+* Des transitions fluides.
+
+Les animations devront rester légères pour ne pas ralentir la plateforme.
+
+7. Responsive design
+
+Trois formats principaux :
+
+Desktop : affichage complet avec navigation horizontale ou barre latérale.
+
+Tablette : grilles adaptées et navigation simplifiée.
+
+Mobile : cartes verticales, menus compacts, lecteurs adaptés et formulaires tactiles.
+
+Aucun défilement horizontal involontaire ne devra apparaître.
+
+⸻
+
+PARTIE III — SITE WEB PUBLIC
+
+8. Page d’accueil
+
+Route : /
+
+La page d’accueil constitue l’interface principale de Media Spotlight.
+
+8.1 Barre de navigation
+
+Logo Media Spotlight à gauche.
+
+Menu :
+
+* Accueil
+* Vidéos
+* Podcasts
+* À propos
+* Contact
+
+À droite :
+
+* Recherche
+* Bouton de connexion
+* Bouton d’inscription
+* Sélecteur de thème clair/sombre
+
+La navigation pourra devenir fixe lors du défilement.
+
+8.2 Section Hero
+
+La section Hero devra utiliser l’image précédemment choisie : un studio podcast moderne avec une présentatrice portant un casque et parlant dans un microphone.
+
+Composition :
+
+* Image couvrant toute la largeur de l’écran.
+* Présentatrice positionnée principalement à droite.
+* Zone gauche assombrie pour assurer la lisibilité.
+* Dégradé violet et bleu subtil.
+* Hauteur adaptée à la fenêtre.
+
+Texte principal :
+
+« Donnez de la voix à vos idées. »
+
+Sous-titre :
+
+« Découvrez, créez et partagez vos vidéos et podcasts sur une plateforme pensée pour les étudiants et les enseignants. »
+
+Boutons :
+
+* Explorer les vidéos
+* Découvrir les podcasts
+
+L’image devra être intégrée comme arrière-plan responsive, et non comme une capture contenant du texte.
+
+8.3 Section contenus à la une
+
+Afficher une sélection de contenus publics.
+
+Chaque carte comportera :
+
+* Miniature
+* Titre
+* Nom du créateur
+* Catégorie
+* Durée
+* Date de publication
+* Nombre de vues
+* Bouton lecture
+
+8.4 Section catégories
+
+Catégories proposées :
+
+* Technologie
+* Informatique
+* Sciences
+* Management
+* Langues
+* Culture
+* Actualités
+* Projets étudiants
+* Autres
+
+Les catégories devront être configurables par l’administrateur.
+
+8.5 Section podcasts populaires
+
+Présentation des podcasts sous forme de cartes.
+
+Chaque carte affichera une couverture, un titre, un auteur, une durée et un bouton de lecture.
+
+8.6 Section fonctionnement
+
+Trois étapes :
+
+1. Créez votre compte.
+2. Publiez votre contenu.
+3. Partagez votre lien.
+
+8.7 Appel à l’action
+
+Texte :
+
+« Prêt à partager vos idées avec le monde ? »
+
+Bouton : Créer mon compte.
+
+8.8 Pied de page
+
+* Logo
+* Description
+* Navigation
+* Contact
+* Mentions légales
+* Politique de confidentialité
+* Conditions d’utilisation
+* Réseaux sociaux configurables
+* Copyright dynamique
+
+⸻
+
+PARTIE IV — CATALOGUE MULTIMÉDIA
+
+9. Page Vidéos
+
+Route : /videos
+
+Fonctionnalités
+
+* Affichage des vidéos publiques.
+* Recherche par titre et description.
+* Filtrage par catégorie.
+* Tri par date et popularité.
+* Pagination ou chargement progressif.
+* Consultation des miniatures.
+* Accès au lecteur vidéo.
+
+Carte vidéo
+
+Informations :
+
+* Miniature 16:9
+* Titre
+* Auteur
+* Durée
+* Vues
+* Date
+* Catégorie
+
+Un clic ouvre la page de lecture.
+
+10. Lecteur vidéo
+
+Route : /videos/[slug]
+
+Fonctionnalités
+
+* Lecture et pause.
+* Réglage du volume.
+* Mode plein écran.
+* Barre de progression.
+* Affichage de la durée.
+* Sélection de qualité si disponible.
+* Lecture adaptée au mobile.
+* Partage du lien.
+* Ajout aux favoris.
+* Signalement du contenu.
+* Affichage de la description.
+* Présentation de vidéos similaires.
+
+Le lecteur utilisera les capacités disponibles du navigateur et du service vidéo retenu.
+
+Visibilité
+
+Trois statuts :
+
+* Public : visible dans le catalogue.
+* Non répertorié : accessible par lien.
+* Privé : accessible uniquement aux utilisateurs autorisés.
+
+Un contenu privé ne devra jamais devenir accessible simplement parce qu’une personne connaît son URL.
+
+11. Page Podcasts
+
+Route : /podcasts
+
+Fonctionnalités
+
+* Catalogue des podcasts.
+* Recherche.
+* Filtrage.
+* Couvertures personnalisées.
+* Affichage des épisodes.
+* Lecture audio.
+* Favoris.
+* Partage.
+* Informations sur l’auteur.
+
+12. Lecteur audio
+
+Le lecteur devra proposer :
+
+* Lecture et pause.
+* Barre de progression.
+* Durée.
+* Volume.
+* Avance et retour de quelques secondes.
+* Affichage de la couverture.
+* Titre de l’épisode.
+* Nom du créateur.
+
+Un mini-lecteur persistant pourra être prévu dans une version ultérieure.
+
+⸻
+
+PARTIE V — AUTHENTIFICATION ET COMPTES
+
+13. Inscription
+
+Route : /register
+
+Champs :
+
+* Nom
+* Prénom
+* Adresse e-mail
+* Mot de passe
+* Confirmation du mot de passe
+* Type de compte : étudiant ou enseignant
+* Acceptation des conditions d’utilisation
+
+Le rôle administrateur ne pourra pas être sélectionné lors de l’inscription publique.
+
+Validations
+
+* E-mail valide.
+* Mot de passe suffisamment robuste.
+* Vérification de l’unicité de l’adresse e-mail.
+* Confirmation de l’adresse e-mail.
+* Messages d’erreur explicites.
+
+14. Connexion
+
+Route : /login
+
+Champs :
+
+* E-mail
+* Mot de passe
+
+Fonctionnalités :
+
+* Connexion sécurisée.
+* Mot de passe oublié.
+* Réinitialisation du mot de passe.
+* Déconnexion.
+* Redirection selon le rôle.
+
+15. Gestion des rôles
+
+Quatre rôles principaux :
+
+Rôle	Autorisations
+Visiteur	Consulter les contenus publics
+Étudiant	Publier et gérer ses contenus
+Enseignant	Consulter les contenus autorisés et communiquer
+Administrateur	Administrer la plateforme
+
+Les permissions seront contrôlées côté serveur, pas uniquement dans l’interface.
+
+⸻
+
+PARTIE VI — USER PANEL
+
+16. Tableau de bord utilisateur
+
+Route : /dashboard
+
+Le User Panel doit reprendre l’identité graphique de Media Spotlight.
+
+Structure
+
+Barre latérale à gauche.
+
+Zone principale à droite.
+
+Barre supérieure avec recherche, notifications, thème et avatar.
+
+Menu utilisateur
+
+* Tableau de bord
+* Mes vidéos
+* Mes podcasts
+* Ajouter un contenu
+* Mes favoris
+* Mes liens partagés
+* Messages
+* Notifications
+* Mon profil
+* Paramètres
+* Déconnexion
+
+Page d’accueil du dashboard
+
+Afficher :
+
+* Message de bienvenue.
+* Nombre de vidéos publiées.
+* Nombre de podcasts publiés.
+* Nombre de vues.
+* Nombre de contenus partagés.
+* Derniers contenus.
+* Activité récente.
+
+Les statistiques affichées devront provenir de données réelles.
+
+17. Gestion des vidéos
+
+Route : /dashboard/videos
+
+L’utilisateur pourra :
+
+* Voir ses vidéos.
+* Ajouter une vidéo.
+* Modifier les informations.
+* Changer la visibilité.
+* Copier un lien.
+* Consulter les statistiques.
+* Supprimer une vidéo après confirmation.
+
+Formulaire de publication
+
+Champs :
+
+* Titre
+* Description
+* Catégorie
+* Fichier vidéo
+* Miniature
+* Visibilité
+* Éventuels utilisateurs autorisés
+
+États de publication
+
+* Brouillon
+* Téléversement
+* Traitement
+* Publié
+* Échec
+* Archivé
+
+Le système devra empêcher la publication d’un fichier non traité ou invalide.
+
+18. Gestion des podcasts
+
+Route : /dashboard/podcasts
+
+Fonctionnalités similaires aux vidéos.
+
+Champs :
+
+* Titre
+* Description
+* Fichier audio
+* Image de couverture
+* Catégorie
+* Visibilité
+* Date de publication
+
+19. Mes favoris
+
+Route : /dashboard/favorites
+
+L’utilisateur retrouvera les vidéos et podcasts sauvegardés.
+
+Il pourra consulter et retirer ses favoris.
+
+20. Mes liens partagés
+
+Route : /dashboard/shares
+
+Cette page permettra de gérer les liens créés pour les contenus.
+
+Fonctionnalités :
+
+* Copier le lien.
+* Voir le contenu associé.
+* Vérifier le niveau d’accès.
+* Révoquer un lien sécurisé.
+* Définir une expiration facultative.
+* Créer un nouveau lien.
+
+Les liens publics simples et les liens sécurisés devront être clairement distingués.
+
+21. Mon profil
+
+Route : /dashboard/profile
+
+Informations :
+
+* Photo
+* Nom
+* Prénom
+* Adresse e-mail
+* Type de compte
+* Biographie
+* Date d’inscription
+
+Fonctionnalités :
+
+* Modifier le profil.
+* Changer le mot de passe.
+* Modifier la photo.
+* Gérer les préférences.
+
+22. Paramètres utilisateur
+
+Route : /dashboard/settings
+
+* Choix du thème.
+* Préférences de notifications.
+* Gestion de la confidentialité.
+* Sécurité du compte.
+* Déconnexion des sessions si prise en charge.
+* Demande de suppression du compte.
+
+⸻
+
+PARTIE VII — TEACHER PANEL
+
+23. Espace enseignant
+
+Route : /teacher
+
+L’espace enseignant pourra réutiliser les composants du User Panel, avec des fonctionnalités adaptées.
+
+Tableau de bord
+
+Afficher :
+
+* Contenus récemment consultés.
+* Contenus partagés avec l’enseignant.
+* Messages reçus.
+* Notifications.
+* Favoris.
+
+24. Consultation des travaux
+
+L’enseignant pourra :
+
+* Ouvrir les liens reçus.
+* Consulter les vidéos autorisées.
+* Écouter les podcasts.
+* Identifier le créateur.
+* Lire la description.
+* Ajouter des contenus aux favoris.
+
+Fonctionnalités complémentaires proposées
+
+* Commentaires pédagogiques.
+* Historique des contenus reçus.
+* Classement des travaux par étudiant.
+* Statut consulté/non consulté.
+
+Ces fonctionnalités sont facultatives et ne devront pas être considérées comme promises sans validation du client.
+
+⸻
+
+PARTIE VIII — MESSAGERIE
+
+25. Module Messages
+
+Route : /dashboard/messages
+
+La messagerie permettra la communication entre utilisateurs autorisés.
+
+Interface
+
+Deux colonnes sur ordinateur :
+
+* Liste des conversations.
+* Conversation sélectionnée.
+
+Sur mobile, les conversations s’ouvriront sur un écran dédié.
+
+Fonctionnalités
+
+* Envoyer un message texte.
+* Recevoir un message.
+* Afficher l’heure.
+* Identifier l’expéditeur.
+* Afficher les messages non lus.
+* Rechercher une conversation.
+* Signaler un échange inapproprié.
+* Bloquer un utilisateur si nécessaire.
+
+Les pièces jointes et les conversations de groupe pourront être ajoutées ultérieurement.
+
+Sécurité
+
+Seuls les participants autorisés pourront accéder à une conversation.
+
+Les messages ne devront jamais être exposés à un utilisateur extérieur.
+
+⸻
+
+PARTIE IX — NOTIFICATIONS
+
+26. Centre de notifications
+
+Route : /dashboard/notifications
+
+Types de notifications :
+
+* Nouveau message.
+* Publication réussie.
+* Échec de traitement d’un fichier.
+* Contenu signalé.
+* Changement de statut.
+* Nouveau partage.
+* Notification administrative.
+
+Fonctionnalités
+
+* Badge de notifications non lues.
+* Liste chronologique.
+* Marquer comme lu.
+* Tout marquer comme lu.
+* Accéder à l’élément concerné.
+
+Les notifications internes sont prioritaires. Les notifications push et e-mail supplémentaires pourront être prévues en phase 2.
+
+⸻
+
+PARTIE X — ADMIN PANEL
+
+27. Présentation générale
+
+Route : /admin
+
+Le panneau administrateur sera une interface distincte du site public.
+
+Il reprendra les couleurs et composants de Media Spotlight, avec une présentation de type SaaS professionnel.
+
+Structure graphique
+
+* Sidebar fixe ou rétractable.
+* Barre supérieure.
+* Cartes statistiques.
+* Graphiques.
+* Tableaux de données.
+* Filtres.
+* Modales.
+* Badges de statut.
+* Notifications.
+
+Navigation administrateur
+
+1. Dashboard
+2. Utilisateurs
+3. Vidéos
+4. Podcasts
+5. Catégories
+6. Messages et signalements
+7. Notifications
+8. Statistiques
+9. Paramètres du site
+10. Sécurité
+11. Mon compte
+12. Déconnexion
+
+28. Dashboard administrateur
+
+Route : /admin/dashboard
+
+Indicateurs
+
+* Nombre total d’utilisateurs.
+* Nombre d’étudiants.
+* Nombre d’enseignants.
+* Nombre de vidéos.
+* Nombre de podcasts.
+* Nombre de vues.
+* Publications récentes.
+* Contenus en attente.
+* Signalements ouverts.
+
+Graphiques
+
+* Évolution des inscriptions.
+* Publications par période.
+* Répartition vidéos/podcasts.
+* Contenus les plus consultés.
+
+Tableau d’activité
+
+Colonnes :
+
+* Date
+* Utilisateur
+* Action
+* Contenu
+* Statut
+
+Toutes les statistiques devront être calculées depuis les données de l’application.
+
+29. Gestion des utilisateurs
+
+Route : /admin/users
+
+Tableau
+
+Colonnes :
+
+* Photo
+* Nom
+* E-mail
+* Rôle
+* Statut
+* Date d’inscription
+* Actions
+
+Fonctionnalités
+
+* Rechercher un utilisateur.
+* Filtrer par rôle.
+* Consulter son profil.
+* Modifier son statut.
+* Suspendre un compte.
+* Réactiver un compte.
+* Consulter ses contenus.
+* Modifier son rôle avec autorisation appropriée.
+
+La suppression définitive devra être protégée par une confirmation et respecter les obligations de conservation applicables.
+
+30. Administration des vidéos
+
+Route : /admin/videos
+
+Fonctionnalités
+
+* Consulter les vidéos.
+* Rechercher.
+* Filtrer par catégorie.
+* Filtrer par statut.
+* Visualiser une vidéo autorisée.
+* Publier ou dépublier.
+* Modérer.
+* Archiver.
+* Supprimer après confirmation.
+
+Tableau
+
+* Miniature
+* Titre
+* Auteur
+* Catégorie
+* Visibilité
+* Statut
+* Date
+* Actions
+
+31. Administration des podcasts
+
+Route : /admin/podcasts
+
+Fonctionnalités identiques, adaptées aux fichiers audio.
+
+32. Gestion des catégories
+
+Route : /admin/categories
+
+L’administrateur pourra :
+
+* Ajouter une catégorie.
+* Modifier son nom.
+* Modifier sa description.
+* Définir son icône.
+* Activer ou désactiver.
+* Modifier son ordre.
+* Supprimer si aucune dépendance ne l’empêche.
+
+33. Gestion des signalements
+
+Route : /admin/reports
+
+Les utilisateurs pourront signaler un contenu ou un échange.
+
+Informations
+
+* Auteur du signalement.
+* Élément signalé.
+* Motif.
+* Date.
+* Statut.
+
+Statuts
+
+* Nouveau
+* En cours
+* Résolu
+* Rejeté
+
+Actions
+
+* Examiner.
+* Masquer un contenu.
+* Restaurer.
+* Suspendre un compte.
+* Clôturer un signalement.
+
+Les décisions de modération devront être journalisées.
+
+34. Gestion des notifications
+
+Route : /admin/notifications
+
+L’administrateur pourra créer des annonces internes destinées :
+
+* À tous les utilisateurs.
+* Aux étudiants.
+* Aux enseignants.
+* À des utilisateurs sélectionnés.
+
+Chaque annonce pourra comporter un titre, un message et un lien facultatif.
+
+35. Statistiques avancées
+
+Route : /admin/analytics
+
+Indicateurs
+
+* Nouveaux comptes.
+* Publications.
+* Consultations.
+* Contenus populaires.
+* Répartition par catégorie.
+* Évolution de l’activité.
+
+Filtres
+
+* Aujourd’hui.
+* 7 derniers jours.
+* 30 derniers jours.
+* Période personnalisée.
+
+Les mesures devront respecter les règles de confidentialité et les choix de consentement applicables.
+
+36. Paramètres du site
+
+Route : /admin/settings
+
+Identité
+
+* Nom de la plateforme.
+* Logo.
+* Favicon.
+* Description.
+* Adresse e-mail de contact.
+
+Contenu
+
+* Texte d’accueil.
+* Image Hero.
+* Boutons principaux.
+* Sections mises en avant.
+* Catégories visibles.
+
+Fonctionnement
+
+* Autoriser ou suspendre les inscriptions.
+* Configurer les publications.
+* Activer la modération préalable.
+* Définir les limites de fichiers.
+* Activer ou désactiver certains modules.
+
+Apparence
+
+* Couleurs principales.
+* Mode clair/sombre.
+* Images.
+* Logo.
+
+La personnalisation devra être encadrée afin de préserver la cohérence de la maquette.
+
+37. Sécurité administrative
+
+Route : /admin/security
+
+Fonctionnalités :
+
+* Authentification renforcée.
+* MFA obligatoire pour les administrateurs.
+* Journal des connexions.
+* Historique des actions sensibles.
+* Gestion des sessions.
+* Protection des routes.
+* Contrôle des permissions.
+* Alertes en cas d’activité suspecte.
+
+Les administrateurs ne devront pas pouvoir consulter arbitrairement les messages privés. Toute procédure exceptionnelle devra être juridiquement justifiée, strictement autorisée et tracée.
+
+⸻
+
+PARTIE XI — PAGES INSTITUTIONNELLES
+
+38. Page À propos
+
+Route : /about
+
+Contenu :
+
+* Présentation de Media Spotlight.
+* Mission.
+* Objectifs.
+* Public cible.
+* Fonctionnement.
+* Valeurs.
+
+Design fidèle aux couleurs de la plateforme, avec sections illustrées et typographie moderne.
+
+39. Page Contact
+
+Route : /contact
+
+Formulaire
+
+* Nom
+* E-mail
+* Sujet
+* Message
+* Bouton Envoyer
+
+Fonctionnalités
+
+* Validation des champs.
+* Protection anti-spam.
+* Confirmation d’envoi.
+* Transmission à l’adresse configurée.
+* Gestion des erreurs.
+
+40. Pages légales
+
+Prévoir :
+
+* Mentions légales.
+* Politique de confidentialité.
+* Conditions générales d’utilisation.
+* Informations relatives aux cookies.
+* Procédure de demande d’accès, rectification et suppression des données.
+
+Les contenus juridiques devront être adaptés à l’identité réelle de l’exploitant et validés avant publication.
+
+⸻
+
+PARTIE XII — ARCHITECTURE TECHNIQUE
+
+41. Stack technologique proposée
+
+Frontend
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* Lucide Icons
+* Bibliothèque de composants accessible
+* Recharts pour les statistiques
+
+Backend
+
+* API Next.js côté serveur pour le MVP
+* TypeScript
+* Validation des données avec Zod
+* Auth.js pour l’authentification
+* Contrôle des accès par rôles
+
+Base de données
+
+* PostgreSQL
+* Prisma ORM
+
+Stockage
+
+* Stockage objet compatible S3 pour les images et fichiers.
+* Service de streaming vidéo adapté au transcodage et à la lecture.
+* Stockage audio adapté aux podcasts.
+
+Hébergement
+
+* Vercel pour l’application Next.js.
+* Base PostgreSQL managée.
+* Stockage et traitement multimédia externalisés.
+
+Les fournisseurs définitifs devront être sélectionnés selon le budget, les volumes de fichiers et les exigences de confidentialité.
+
+42. Architecture générale
+
+Navigateur web
+
+↓
+
+Application Next.js
+
+↓
+
+Authentification et contrôle des permissions
+
+↓
+
+API métier
+
+↓
+
+Base PostgreSQL
+
+↓
+
+Stockage multimédia et services externes
+
+Les fichiers volumineux seront envoyés directement vers un service de stockage autorisé, au moyen de mécanismes de téléversement sécurisés.
+
+⸻
+
+PARTIE XIII — MODÈLE DE DONNÉES
+
+43. Tables principales
+
+users
+
+* id
+* first_name
+* last_name
+* email
+* password_hash si authentification par mot de passe
+* role
+* avatar_url
+* bio
+* status
+* email_verified_at
+* created_at
+* updated_at
+
+videos
+
+* id
+* user_id
+* title
+* slug
+* description
+* category_id
+* thumbnail_url
+* media_asset_id
+* visibility
+* processing_status
+* publication_status
+* published_at
+* created_at
+* updated_at
+
+podcasts
+
+* id
+* user_id
+* title
+* slug
+* description
+* category_id
+* cover_url
+* media_asset_id
+* visibility
+* publication_status
+* published_at
+* created_at
+* updated_at
+
+media_assets
+
+* id
+* owner_id
+* storage_provider
+* storage_key
+* mime_type
+* file_size
+* duration
+* processing_status
+* created_at
+
+categories
+
+* id
+* name
+* slug
+* description
+* icon
+* is_active
+* sort_order
+
+favorites
+
+* id
+* user_id
+* content_type
+* content_id
+* created_at
+
+Une contrainte d’unicité devra empêcher les favoris en double.
+
+share_links
+
+* id
+* content_type
+* content_id
+* token_hash
+* expires_at
+* revoked_at
+* created_by
+* created_at
+
+content_permissions
+
+* id
+* content_type
+* content_id
+* user_id
+* permission
+* created_at
+
+conversations
+
+* id
+* created_at
+* updated_at
+
+conversation_participants
+
+* conversation_id
+* user_id
+* joined_at
+
+messages
+
+* id
+* conversation_id
+* sender_id
+* body
+* read_at
+* created_at
+
+notifications
+
+* id
+* user_id
+* type
+* title
+* body
+* target_url
+* read_at
+* created_at
+
+reports
+
+* id
+* reporter_id
+* target_type
+* target_id
+* reason
+* status
+* reviewed_by
+* reviewed_at
+* created_at
+
+content_views
+
+* id
+* content_type
+* content_id
+* viewer_id nullable
+* viewed_at
+
+audit_logs
+
+* id
+* actor_id
+* action
+* target_type
+* target_id
+* metadata
+* created_at
+
+site_settings
+
+* key
+* value
+* updated_at
+
+Les relations, index, contraintes, politiques de suppression et règles d’intégrité référentielle devront être définis dans les migrations.
+
+⸻
+
+PARTIE XIV — SÉCURITÉ
+
+44. Exigences
+
+Authentification
+
+* Mots de passe hachés avec un algorithme adapté.
+* Sessions sécurisées.
+* Cookies HttpOnly, Secure et SameSite appropriés.
+* Protection contre les tentatives de connexion répétées.
+* Réinitialisation sécurisée.
+* Vérification des e-mails.
+
+Autorisations
+
+* Contrôle systématique des rôles côté serveur.
+* Vérification du propriétaire avant modification.
+* Isolation des données privées.
+* Interdiction d’accéder aux contenus privés sans autorisation.
+* Protection de toutes les API.
+
+Fichiers
+
+* Limites de taille.
+* Validation du type réel de fichier.
+* Noms de stockage générés côté serveur.
+* Stockage non exécutable.
+* Contrôle des accès.
+* Traitement sécurisé.
+* Liens temporaires pour les fichiers privés.
+
+Application
+
+* HTTPS obligatoire en production.
+* Validation des entrées.
+* Protection contre XSS, CSRF selon l’architecture, injections et accès non autorisés.
+* Secrets conservés dans les variables d’environnement.
+* Journalisation des erreurs sans exposition de données sensibles.
+* Sauvegardes.
+* Procédure de restauration.
+
+⸻
+
+PARTIE XV — PERFORMANCES ET QUALITÉ
+
+45. Performances
+
+Objectifs proposés :
+
+* Chargement rapide des pages principales.
+* Images optimisées.
+* Miniatures compressées.
+* Chargement différé des médias.
+* Pagination des listes.
+* Cache des données publiques lorsque pertinent.
+* Streaming vidéo adaptatif selon le service choisi.
+* Limitation des requêtes inutiles.
+
+Objectif indicatif : atteindre de bons scores Core Web Vitals sur les pages publiques, notamment un LCP inférieur ou égal à 2,5 secondes au 75e percentile dans des conditions de mesure représentatives.
+
+46. Accessibilité
+
+* Navigation au clavier.
+* Contrastes suffisants.
+* Labels sur les formulaires.
+* Textes alternatifs pertinents.
+* États de focus visibles.
+* Messages d’erreur compréhensibles.
+* Boutons accessibles.
+* Lecteurs utilisables au clavier.
+* Sous-titres ou transcriptions lorsque disponibles.
+
+Objectif de conception : WCAG 2.2 niveau AA.
+
+47. Compatibilité
+
+Navigateurs récents :
+
+* Chrome
+* Firefox
+* Safari
+* Edge
+
+Appareils :
+
+* PC Windows
+* macOS
+* iPhone
+* Android
+* Tablettes
+
+⸻
+
+PARTIE XVI — PARCOURS UTILISATEURS
+
+48. Parcours étudiant
+
+1. L’étudiant ouvre Media Spotlight.
+2. Il crée son compte.
+3. Il confirme son adresse e-mail.
+4. Il se connecte.
+5. Il accède au User Panel.
+6. Il clique sur Ajouter une vidéo.
+7. Il renseigne les informations.
+8. Il téléverse son fichier.
+9. Il choisit la visibilité.
+10. Il publie après traitement.
+11. Il génère un lien.
+12. Il transmet le lien à son professeur.
+13. Le professeur consulte le contenu selon les autorisations définies.
+
+49. Parcours enseignant
+
+1. L’enseignant reçoit un lien.
+2. Il ouvre Media Spotlight.
+3. Il s’authentifie si nécessaire.
+4. Le système vérifie ses permissions.
+5. Il consulte la vidéo ou le podcast.
+6. Il peut ajouter le contenu aux favoris.
+7. Il peut contacter l’étudiant si la messagerie est activée.
+
+50. Parcours administrateur
+
+1. L’administrateur se connecte.
+2. Il réalise la vérification MFA.
+3. Il accède au tableau de bord.
+4. Il consulte les statistiques.
+5. Il supervise les utilisateurs.
+6. Il modère les contenus.
+7. Il traite les signalements.
+8. Il configure les paramètres.
+9. Il consulte les journaux des actions sensibles.
+
+⸻
+
+PARTIE XVII — ORGANISATION DES ÉCRANS
+
+51. Arborescence
+
+Site public
+
+* /
+* /videos
+* /videos/[slug]
+* /podcasts
+* /podcasts/[slug]
+* /about
+* /contact
+* /login
+* /register
+* /forgot-password
+* /privacy
+* /terms
+* /legal
+
+User Panel
+
+* /dashboard
+* /dashboard/videos
+* /dashboard/videos/new
+* /dashboard/videos/[id]/edit
+* /dashboard/podcasts
+* /dashboard/podcasts/new
+* /dashboard/favorites
+* /dashboard/shares
+* /dashboard/messages
+* /dashboard/notifications
+* /dashboard/profile
+* /dashboard/settings
+
+Teacher Panel
+
+* /teacher
+* /teacher/shared
+* /teacher/favorites
+* /teacher/messages
+* /teacher/notifications
+* /teacher/profile
+
+Admin Panel
+
+* /admin/dashboard
+* /admin/users
+* /admin/videos
+* /admin/podcasts
+* /admin/categories
+* /admin/reports
+* /admin/notifications
+* /admin/analytics
+* /admin/settings
+* /admin/security
+
+Chaque route devra posséder les protections adaptées à son rôle.
+
+⸻
+
+PARTIE XVIII — PLANNING DE DÉVELOPPEMENT
+
+52. Planning indicatif sur 12 jours ouvrés
+
+Ce planning concerne un MVP limité et suppose que les maquettes, les contenus, les accès techniques et les décisions essentielles soient disponibles dès le départ.
+
+Jour	Travail
+J1	Initialisation, architecture et design system
+J2	Accueil et pages publiques
+J3	Catalogue vidéos et podcasts
+J4	Authentification et permissions
+J5	User Panel
+J6	Téléversement et gestion des contenus
+J7	Lecteurs et partage sécurisé
+J8	Admin Panel — utilisateurs et contenus
+J9	Administration des catégories et paramètres
+J10	Tests fonctionnels et sécurité
+J11	Responsive, corrections et optimisation
+J12	Déploiement, recette et livraison
+
+La messagerie temps réel, les statistiques avancées, les notifications push et l’espace enseignant enrichi ne sont pas inclus dans ce planning minimal sans réestimation.
+
+⸻
+
+PARTIE XIX — PRIORISATION
+
+53. MVP — Version 1
+
+Fonctionnalités indispensables :
+
+* Accueil fidèle à la maquette.
+* Catalogue vidéo.
+* Catalogue podcast.
+* Lecteurs multimédias.
+* Inscription et connexion.
+* Rôles étudiant et administrateur.
+* User Panel.
+* Publication et gestion de contenus.
+* Liens publics et non répertoriés.
+* Accès privé sécurisé de base.
+* Admin Panel.
+* Gestion des utilisateurs.
+* Modération des contenus.
+* Gestion des catégories.
+* Profil utilisateur.
+* Pages À propos et Contact.
+* Responsive.
+* Mode clair et sombre.
+* Sécurité essentielle.
+
+54. Version 1.1
+
+* Teacher Panel enrichi.
+* Messagerie.
+* Centre de notifications complet.
+* Favoris.
+* Liens expirables et révocables.
+* Statistiques détaillées.
+* Signalements avancés.
+
+55. Version 2
+
+* Notifications push.
+* Commentaires pédagogiques.
+* Groupes et classes.
+* Dépôt de travaux par devoir.
+* Playlists.
+* Transcriptions.
+* Sous-titres automatisés.
+* Recherche avancée.
+* Application PWA installable.
+* Fonctionnalités communautaires supplémentaires.
+
+⸻
+
+PARTIE XX — TESTS ET VALIDATION
+
+56. Tests fonctionnels
+
+Vérifier :
+
+* Inscription et connexion.
+* Réinitialisation de mot de passe.
+* Permissions des rôles.
+* Publication vidéo.
+* Publication audio.
+* Lecture multimédia.
+* Modification des contenus.
+* Suppression.
+* Partage.
+* Accès privé.
+* Recherche.
+* Filtres.
+* Gestion des utilisateurs.
+* Administration.
+* Formulaire de contact.
+* Changement de thème.
+* Affichage mobile.
+
+57. Tests de sécurité
+
+Vérifier notamment :
+
+* Un étudiant ne peut pas accéder à /admin.
+* Un utilisateur ne peut pas modifier les vidéos d’un autre.
+* Un visiteur ne peut pas lire un contenu privé.
+* Un lien révoqué ne fonctionne plus.
+* Une API refuse les requêtes non autorisées.
+* Un fichier invalide est rejeté.
+* Les mots de passe ne sont pas exposés.
+* Les erreurs ne révèlent pas de secrets.
+* Les permissions sont appliquées même si l’interface est contournée.
+
+58. Critères de recette
+
+La version MVP sera considérée comme livrable lorsque :
+
+1. Les pages prioritaires sont fonctionnelles.
+2. Les interfaces sont cohérentes avec les maquettes validées.
+3. Les vidéos et podcasts peuvent être publiés et lus.
+4. Les liens fonctionnent selon les règles d’accès.
+5. Les utilisateurs accèdent uniquement aux données autorisées.
+6. L’administrateur peut gérer les utilisateurs et contenus.
+7. Les principales pages fonctionnent sur mobile et ordinateur.
+8. Les tests critiques sont réussis.
+9. L’application est accessible en HTTPS.
+10. Les procédures de sauvegarde et de restauration sont documentées.
+
+⸻
+
+PARTIE XXI — LIVRABLES
+
+59. Livrables attendus
+
+À la fin du projet :
+
+* Code source de l’application.
+* Interface publique.
+* User Panel.
+* Admin Panel.
+* Teacher Panel de base si retenu au MVP.
+* Base de données et migrations.
+* Documentation d’installation.
+* Documentation des variables d’environnement.
+* Guide d’administration.
+* Guide utilisateur.
+* Procédure de déploiement.
+* Procédure de sauvegarde.
+* Rapport des tests.
+* Liste des fonctionnalités livrées.
+* Liste des éventuelles réserves.
+
+Les accès aux services externes devront être transférés ou documentés selon les modalités convenues avec le client.
+
+⸻
+
+PARTIE XXII — HÉBERGEMENT ET MAINTENANCE
+
+60. Hébergement
+
+La solution devra prévoir :
+
+* Domaine personnalisé.
+* Hébergement frontend/backend.
+* Base de données.
+* Stockage des images.
+* Hébergement et traitement vidéo.
+* Stockage audio.
+* Certificat HTTPS.
+* Sauvegardes.
+* Surveillance des erreurs.
+
+Le coût dépendra notamment du nombre d’utilisateurs, du volume des vidéos, du trafic et du fournisseur retenu.
+
+61. Maintenance
+
+Prestations possibles :
+
+* Corrections de bugs.
+* Mises à jour de sécurité.
+* Sauvegardes et vérification de restauration.
+* Surveillance.
+* Optimisations.
+* Évolutions fonctionnelles.
+
+La maintenance devra faire l’objet d’un accord séparé précisant son périmètre, son tarif et ses délais d’intervention.
+
+⸻
+
+PARTIE XXIII — POINTS À VALIDER AVEC LE CLIENT
+
+Avant de figer le devis et le planning, les décisions suivantes sont indispensables :
+
+1. Les étudiants publient-ils eux-mêmes leurs contenus ou uniquement l’administrateur ?
+2. Les enseignants doivent-ils obligatoirement créer un compte ?
+3. Les vidéos sont-elles publiques, privées ou accessibles par lien ?
+4. La messagerie est-elle indispensable au lancement ?
+5. Les contenus doivent-ils être approuvés avant publication ?
+6. Quelle taille maximale de vidéo faut-il accepter ?
+7. Combien d’utilisateurs sont attendus au lancement ?
+8. Quel volume de stockage faut-il prévoir ?
+9. Le client possède-t-il déjà les vidéos, textes et images ?
+10. Quel budget est prévu pour l’hébergement et les services multimédias ?
+11. Qui sera juridiquement responsable de la plateforme et de ses contenus ?
+12. Le délai de deux semaines est-il impératif ou négociable ?
+
+⸻
+
+CONCLUSION
+
+Media Spotlight sera une plateforme web multimédia moderne, conçue pour faciliter la création, la consultation et le partage de vidéos et podcasts dans un environnement pédagogique.
+
+Son identité visuelle reposera sur un design coloré violet et bleu, des interfaces modernes et un accueil immersif utilisant la photographie de studio podcast validée.
+
+L’application comportera un site public, un espace utilisateur, un espace enseignant et un espace administrateur.
+
+Le développement sera organisé autour d’un MVP sécurisé et fonctionnel, puis enrichi progressivement avec les fonctionnalités communautaires et analytiques.
+
+Le présent cahier des charges constitue une base de conception et de développement. Les fonctionnalités proposées au-delà de la demande initiale devront être validées par le client avant engagement contractuel.
+
+FIN DU CAHIER DES CHARGES — MEDIA SPOTLIGHT

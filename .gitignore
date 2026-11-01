@@ -1,0 +1,8 @@
+/data/*.sqlite
+/data/uploads/*
+!/data/uploads/.gitkeep
+/.idea/
+/.vscode/
+*.log
+.env
+.env.local

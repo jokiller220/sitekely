@@ -1,0 +1,144 @@
+/* Media Spotlight - Official Branding Integration */
+/* Fixed Navigation Bar */
+.topbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    box-shadow: 0 4px 20px rgba(16, 26, 56, 0.06);
+}
+
+body {
+    padding-top: 76px !important;
+}
+
+@media (max-width: 800px) {
+    body {
+        padding-top: 64px !important;
+    }
+}
+
+/* Fixed Sidebar Navigation & Workspace Bar */
+@media (min-width: 801px) {
+    .sidebar {
+        position: sticky !important;
+        top: 76px !important;
+        height: calc(100vh - 76px) !important;
+        overflow-y: auto !important;
+        align-self: start !important;
+        z-index: 90 !important;
+    }
+    .sidebar::-webkit-scrollbar {
+        width: 4px;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+        background: rgba(108, 59, 255, 0.2);
+        border-radius: 4px;
+    }
+    .workspace-bar {
+        position: sticky !important;
+        top: 76px !important;
+        z-index: 80 !important;
+        backdrop-filter: blur(14px) !important;
+    }
+}
+
+
+.logo:before,
+.logo:after {
+    content: none !important;
+}
+
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.logo-img {
+    height: 38px;
+    width: auto;
+    max-height: 40px;
+    object-fit: contain;
+    display: block;
+    transition: transform .2s ease, filter .2s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.02);
+}
+
+.logo-dark,
+.logo-img-dark {
+    display: none !important;
+}
+
+.logo-light,
+.logo-img-light {
+    display: block !important;
+}
+
+.dark-ui .logo-light,
+.dark-ui .logo-img-light {
+    display: none !important;
+}
+
+.dark-ui .logo-dark,
+.dark-ui .logo-img-dark {
+    display: block !important;
+}
+
+
+/* Auth card branding */
+.auth-card:before {
+    content: none !important;
+}
+
+.auth-brand {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.auth-brand .logo-img {
+    height: 46px;
+    max-height: 48px;
+}
+
+/* Footer branding */
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.footer-logo {
+    height: 34px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Logo mark standalone */
+.logo-mark {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media (max-width: 800px) {
+    .logo-img {
+        height: 32px;
+    }
+    .auth-brand .logo-img {
+        height: 38px;
+    }
+}
+
