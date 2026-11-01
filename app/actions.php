@@ -131,9 +131,9 @@ function registerUser(PDO $db): never
 {
     $first = trim($_POST['first_name'] ?? ''); $last = trim($_POST['last_name'] ?? '');
     $email = strtolower(trim($_POST['email'] ?? '')); $password = $_POST['password'] ?? '';
-    $confirmation = $_POST['password_confirmation'] ?? $password;
+    $confirmation = $_POST['password_confirmation'] ?? ($_POST['password_confirm'] ?? $password);
     $role = $_POST['role'] ?? 'student';
-    $terms = $_POST['terms'] ?? '';
+    $terms = !empty($_POST['terms']) || !empty($_POST['accept_terms']);
 
     if (!$terms) abortWith('Vous devez accepter les conditions d’utilisation.');
     if ($password !== $confirmation) abortWith('Les deux mots de passe ne correspondent pas.');

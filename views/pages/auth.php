@@ -43,9 +43,9 @@
                         <a href="<?=url('forgot-password')?>" class="link" style="font-size:0.8rem;">Mot de passe oublié ?</a>
                     <?php endif ?>
                 </div>
-                <div class="password-field-wrap">
-                    <input required minlength="10" type="password" name="password" id="authPassword" autocomplete="<?=$mode==='login'?'current-password':'new-password'?>" placeholder="Minimum 10 caractères">
-                    <button type="button" class="password-toggle-btn" aria-label="Afficher ou masquer le mot de passe" title="Afficher ou masquer le mot de passe">
+                <div class="password-field-wrap" style="position:relative;display:flex;align-items:center;width:100%;">
+                    <input required minlength="10" type="password" name="password" id="authPassword" autocomplete="<?=$mode==='login'?'current-password':'new-password'?>" placeholder="Minimum 10 caractères" style="padding-right:42px;width:100%;">
+                    <button type="button" class="password-toggle-btn" aria-label="Afficher ou masquer le mot de passe" title="Afficher ou masquer le mot de passe" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:32px;height:32px;display:grid;place-items:center;border:0;background:transparent;cursor:pointer;padding:0;color:var(--muted);">
                         <span class="eye-show"><?=icon('eye', 18)?></span>
                         <span class="eye-hide" hidden><?=icon('eye-off', 18)?></span>
                     </button>
@@ -55,9 +55,9 @@
             <?php if($mode==='register'): ?>
                 <div class="field">
                     <label>Confirmez votre mot de passe</label>
-                    <div class="password-field-wrap">
-                        <input required minlength="10" type="password" name="password_confirm" id="authPasswordConfirm" autocomplete="new-password" placeholder="Retapez votre mot de passe">
-                        <button type="button" class="password-toggle-btn" aria-label="Afficher ou masquer le mot de passe" title="Afficher ou masquer le mot de passe">
+                    <div class="password-field-wrap" style="position:relative;display:flex;align-items:center;width:100%;">
+                        <input required minlength="10" type="password" name="password_confirm" id="authPasswordConfirm" autocomplete="new-password" placeholder="Retapez votre mot de passe" style="padding-right:42px;width:100%;">
+                        <button type="button" class="password-toggle-btn" aria-label="Afficher ou masquer le mot de passe" title="Afficher ou masquer le mot de passe" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:32px;height:32px;display:grid;place-items:center;border:0;background:transparent;cursor:pointer;padding:0;color:var(--muted);">
                             <span class="eye-show"><?=icon('eye', 18)?></span>
                             <span class="eye-hide" hidden><?=icon('eye-off', 18)?></span>
                         </button>
@@ -66,7 +66,7 @@
 
                 <div style="margin:16px 0;">
                     <label style="display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;cursor:pointer;line-height:1.4;">
-                        <input type="checkbox" name="accept_terms" required style="margin-top:3px;">
+                        <input type="checkbox" name="terms" value="1" required style="margin-top:3px;">
                         <span>
                             J’ai lu et j’accepte les <a href="<?=url('terms')?>" target="_blank" class="link">Conditions Générales d'Utilisation</a> et la <a href="<?=url('privacy')?>" target="_blank" class="link">Politique de Confidentialité</a>.
                         </span>
