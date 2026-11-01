@@ -82,7 +82,7 @@ function updateProfileAvatar(PDO $db, array $config): never
         abortWith('Fichier image invalide.');
     }
     $file = $_FILES['avatar'];
-    $mime = (new finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']);
+    $mime = detectMimeType($file['tmp_name'], $file['name'], $file['type'] ?? null);
     if (!in_array($mime, ['image/jpeg', 'image/png', 'image/webp'], true)) {
         abortWith('Format d’image non supporté (JPEG, PNG ou WEBP uniquement).');
     }
@@ -176,19 +176,28 @@ function publishMedia(PDO $db, array $config): never
     [$path, $original, $mime, $size] = [null, null, null, null];
     if (!empty($_FILES['media']['name'])) {
         $file = $_FILES['media'];
-        if ($file['error'] !== UPLOAD_ERR_OK || $file['size'] > $config['max_upload_bytes']) abortWith('Le fichier est invalide ou dépasse 500 Mo.');
-        $mime = (new finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']);
-        if (!in_array($mime, $config['allowed_mimes'][$type], true)) abortWith('Format de fichier non autorisé.');
+        if ($file['error'] === UPLOAD_ERR_INI_SIZE || $file['error'] === UPLOAD_ERR_FORM_SIZE) {
+            abortWith('Le fichier dépasse la taille maximale autorisée par le serveur web.');
+        }
+        if ($file['error'] !== UPLOAD_ERR_OK || $file['size'] > $config['max_upload_bytes']) {
+            abortWith('Le fichier est invalide ou dépasse 500 Mo.');
+        }
+        $mime = detectMimeType($file['tmp_name'], $file['name'], $file['type'] ?? null);
+        if (!in_array($mime, $config['allowed_mimes'][$type], true)) {
+            abortWith('Format de fichier non autorisé (' . htmlspecialchars($mime) . ').');
+        }
         $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
         $storedName = bin2hex(random_bytes(20)) . '.' . $extension;
-        if (!move_uploaded_file($file['tmp_name'], $config['uploads'] . '/' . $storedName)) abortWith('Impossible d’enregistrer le fichier.');
+        if (!move_uploaded_file($file['tmp_name'], $config['uploads'] . '/' . $storedName)) {
+            abortWith('Impossible d’enregistrer le fichier.');
+        }
         $path = 'data/uploads/' . $storedName; $original = basename($file['name']); $size = $file['size'];
     }
 
     $thumbnailPath = null;
     if (!empty($_FILES['thumbnail']['name']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) {
         $thumb = $_FILES['thumbnail'];
-        $thumbMime = (new finfo(FILEINFO_MIME_TYPE))->file($thumb['tmp_name']);
+        $thumbMime = detectMimeType($thumb['tmp_name'], $thumb['name'], $thumb['type'] ?? null);
         if (in_array($thumbMime, ['image/jpeg', 'image/png', 'image/webp'], true)) {
             $ext = strtolower(pathinfo($thumb['name'], PATHINFO_EXTENSION));
             $thumbName = 'thumb_' . bin2hex(random_bytes(16)) . '.' . $ext;
@@ -200,7 +209,11 @@ function publishMedia(PDO $db, array $config): never
 
     $stmt = $db->prepare('INSERT INTO media(user_id,type,title,description,category,visibility,status,file_path,original_name,mime_type,size,thumbnail_path) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)');
     $stmt->execute([$user['id'],$type,$title,trim($_POST['description'] ?? ''),$category,$visibility,$status,$path,$original,$mime,$size,$thumbnailPath]);
-    $mediaId = (int)$db->lastInsertId();
+    try {
+        $mediaId = (int)$db->lastInsertId();
+    } catch (Throwable) {
+        $mediaId = 0;
+    }
     createNotification($db, (int)$user['id'], 'publication', 'Contenu créé', '« '.$title.' » est maintenant enregistré dans votre bibliothèque.', '?page=my-media');
     flash($status === 'draft' ? 'Brouillon enregistré avec succès.' : 'Contenu publié avec succès.');
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
@@ -231,7 +244,7 @@ function editMedia(PDO $db, array $config): never
     $thumbnailPath = $media['thumbnail_path'];
     if (!empty($_FILES['thumbnail']['name']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) {
         $thumbFile = $_FILES['thumbnail'];
-        $thumbMime = (new finfo(FILEINFO_MIME_TYPE))->file($thumbFile['tmp_name']);
+        $thumbMime = detectMimeType($thumbFile['tmp_name'], $thumbFile['name'], $thumbFile['type'] ?? null);
         if (in_array($thumbMime, ['image/jpeg', 'image/png', 'image/webp'], true)) {
             $ext = strtolower(pathinfo($thumbFile['name'], PATHINFO_EXTENSION));
             $thumbName = 'thumb_' . bin2hex(random_bytes(16)) . '.' . $ext;
@@ -249,7 +262,7 @@ function editMedia(PDO $db, array $config): never
     if (!empty($_FILES['media']['name']) && $_FILES['media']['error'] === UPLOAD_ERR_OK) {
         $file = $_FILES['media'];
         if ($file['size'] <= $config['max_upload_bytes']) {
-            $newMime = (new finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']);
+            $newMime = detectMimeType($file['tmp_name'], $file['name'], $file['type'] ?? null);
             if (in_array($newMime, $config['allowed_mimes'][$media['type']], true)) {
                 $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
                 $storedName = bin2hex(random_bytes(20)) . '.' . $ext;

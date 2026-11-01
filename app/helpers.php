@@ -115,3 +115,34 @@ function mediaCards(PDO $db, ?string $type = null, int $limit = 6): array
     $stmt = $db->prepare($sql); $stmt->execute($args);
     return $stmt->fetchAll();
 }
+
+function detectMimeType(string $filePath, string $originalName = '', ?string $fallbackMime = null): string
+{
+    if (class_exists('finfo')) {
+        try {
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            $mime = $finfo->file($filePath);
+            if ($mime && $mime !== 'application/octet-stream') return $mime;
+        } catch (Throwable) {}
+    }
+
+    if (function_exists('mime_content_type')) {
+        try {
+            $mime = mime_content_type($filePath);
+            if ($mime && $mime !== 'application/octet-stream') return $mime;
+        } catch (Throwable) {}
+    }
+
+    $ext = strtolower(pathinfo($originalName !== '' ? $originalName : $filePath, PATHINFO_EXTENSION));
+    $map = [
+        'mp4' => 'video/mp4', 'webm' => 'video/webm', 'ogg' => 'video/ogg', 'ogv' => 'video/ogg', 'mov' => 'video/quicktime',
+        'mp3' => 'audio/mpeg', 'wav' => 'audio/wav', 'oga' => 'audio/ogg', 'm4a' => 'audio/mp4', 'aac' => 'audio/aac',
+        'jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'webp' => 'image/webp', 'gif' => 'image/gif'
+    ];
+
+    if (isset($map[$ext])) return $map[$ext];
+    if ($fallbackMime && $fallbackMime !== 'application/octet-stream') return $fallbackMime;
+
+    return 'application/octet-stream';
+}
+
