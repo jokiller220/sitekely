@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public/assets/app.css?v=5">
     <link rel="stylesheet" href="public/assets/dashboard.css?v=5">
-    <link rel="stylesheet" href="public/assets/components.css?v=5">
+    <link rel="stylesheet" href="public/assets/components.css?v=6">
     <link rel="stylesheet" href="public/assets/branding.css?v=5">
     <link rel="stylesheet" href="public/assets/public.css?v=5">
     <link rel="stylesheet" href="public/assets/typography.css?v=5">
@@ -57,6 +57,6 @@
 </header>
 <?php if ($flash): ?><div class="flash-toast <?= e($flash['type']) ?>" role="status"><span class="toast-icon"><?=icon($flash['type']==='error'?'x':'check',17)?></span><span><?= e($flash['message']) ?></span><button class="toast-close" aria-label="Fermer"><?=icon('x',15)?></button><span class="toast-progress"></span></div><?php endif ?>
 <?= $content ?>
-<script src="public/assets/app.js?v=8"></script>
+<script src="public/assets/app.js?v=9"></script>
 </body>
 </html>

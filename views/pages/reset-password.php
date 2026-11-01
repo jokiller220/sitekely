@@ -19,12 +19,24 @@
 
             <div class="field">
                 <label>Nouveau mot de passe</label>
-                <input required minlength="10" type="password" name="password" autocomplete="new-password" placeholder="Au moins 10 caractères">
+                <div class="password-field-wrap">
+                    <input required minlength="10" type="password" name="password" autocomplete="new-password" placeholder="Au moins 10 caractères">
+                    <button type="button" class="password-toggle-btn" aria-label="Afficher ou masquer le mot de passe" title="Afficher ou masquer le mot de passe">
+                        <span class="eye-show"><?=icon('eye', 18)?></span>
+                        <span class="eye-hide" hidden><?=icon('eye-off', 18)?></span>
+                    </button>
+                </div>
             </div>
 
             <div class="field">
                 <label>Confirmez le mot de passe</label>
-                <input required minlength="10" type="password" name="password_confirm" autocomplete="new-password" placeholder="Retapez le mot de passe">
+                <div class="password-field-wrap">
+                    <input required minlength="10" type="password" name="password_confirm" autocomplete="new-password" placeholder="Retapez le mot de passe">
+                    <button type="button" class="password-toggle-btn" aria-label="Afficher ou masquer le mot de passe" title="Afficher ou masquer le mot de passe">
+                        <span class="eye-show"><?=icon('eye', 18)?></span>
+                        <span class="eye-hide" hidden><?=icon('eye-off', 18)?></span>
+                    </button>
+                </div>
             </div>
 
             <button class="button primary" style="width:100%;margin-top:12px;">

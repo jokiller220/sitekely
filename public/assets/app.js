@@ -375,3 +375,33 @@ if (!reducedMotion && 'IntersectionObserver' in window) {
     staggerObserver.observe(group);
   });
 }
+
+// Basculement de visibilité des mots de passe (Afficher / Masquer)
+document.addEventListener('click', event => {
+  const toggleBtn = event.target.closest('.password-toggle-btn');
+  if (!toggleBtn) return;
+
+  const wrap = toggleBtn.closest('.password-field-wrap');
+  const input = wrap?.querySelector('input');
+  if (!input) return;
+
+  const eyeShow = toggleBtn.querySelector('.eye-show');
+  const eyeHide = toggleBtn.querySelector('.eye-hide');
+
+  if (input.type === 'password') {
+    input.type = 'text';
+    if (eyeShow) eyeShow.hidden = true;
+    if (eyeHide) eyeHide.hidden = false;
+    toggleBtn.setAttribute('aria-label', 'Masquer le mot de passe');
+    toggleBtn.setAttribute('title', 'Masquer le mot de passe');
+  } else {
+    input.type = 'password';
+    if (eyeShow) eyeShow.hidden = false;
+    if (eyeHide) eyeHide.hidden = true;
+    toggleBtn.setAttribute('aria-label', 'Afficher le mot de passe');
+    toggleBtn.setAttribute('title', 'Afficher le mot de passe');
+  }
+
+  input.focus();
+});
+

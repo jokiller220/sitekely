@@ -43,13 +43,25 @@
                         <a href="<?=url('forgot-password')?>" class="link" style="font-size:0.8rem;">Mot de passe oublié ?</a>
                     <?php endif ?>
                 </div>
-                <input required minlength="10" type="password" name="password" autocomplete="<?=$mode==='login'?'current-password':'new-password'?>" placeholder="Minimum 10 caractères">
+                <div class="password-field-wrap">
+                    <input required minlength="10" type="password" name="password" id="authPassword" autocomplete="<?=$mode==='login'?'current-password':'new-password'?>" placeholder="Minimum 10 caractères">
+                    <button type="button" class="password-toggle-btn" aria-label="Afficher ou masquer le mot de passe" title="Afficher ou masquer le mot de passe">
+                        <span class="eye-show"><?=icon('eye', 18)?></span>
+                        <span class="eye-hide" hidden><?=icon('eye-off', 18)?></span>
+                    </button>
+                </div>
             </div>
 
             <?php if($mode==='register'): ?>
                 <div class="field">
                     <label>Confirmez votre mot de passe</label>
-                    <input required minlength="10" type="password" name="password_confirm" autocomplete="new-password" placeholder="Retapez votre mot de passe">
+                    <div class="password-field-wrap">
+                        <input required minlength="10" type="password" name="password_confirm" id="authPasswordConfirm" autocomplete="new-password" placeholder="Retapez votre mot de passe">
+                        <button type="button" class="password-toggle-btn" aria-label="Afficher ou masquer le mot de passe" title="Afficher ou masquer le mot de passe">
+                            <span class="eye-show"><?=icon('eye', 18)?></span>
+                            <span class="eye-hide" hidden><?=icon('eye-off', 18)?></span>
+                        </button>
+                    </div>
                 </div>
 
                 <div style="margin:16px 0;">
