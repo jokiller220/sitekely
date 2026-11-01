@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="public/assets/branding.css?v=5">
     <link rel="stylesheet" href="public/assets/public.css?v=5">
     <link rel="stylesheet" href="public/assets/typography.css?v=5">
-    <link rel="stylesheet" href="public/assets/experience.css?v=2">
+    <link rel="stylesheet" href="public/assets/experience.css?v=3">
     <link rel="stylesheet" href="public/assets/admin-panel.css?v=2">
     <link rel="stylesheet" href="public/assets/admin-typography.css?v=2">
     <link rel="stylesheet" href="public/assets/admin-theme.css?v=2">
@@ -57,6 +57,6 @@
 </header>
 <?php if ($flash): ?><div class="flash-toast <?= e($flash['type']) ?>" role="status"><span class="toast-icon"><?=icon($flash['type']==='error'?'x':'check',17)?></span><span><?= e($flash['message']) ?></span><button class="toast-close" aria-label="Fermer"><?=icon('x',15)?></button><span class="toast-progress"></span></div><?php endif ?>
 <?= $content ?>
-<script src="public/assets/app.js?v=7"></script>
+<script src="public/assets/app.js?v=8"></script>
 </body>
 </html>

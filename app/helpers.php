@@ -42,7 +42,17 @@ function redirect(string $page, array $parameters = []): never { header('Locatio
 function csrfToken(): string { return $_SESSION['csrf'] ??= bin2hex(random_bytes(32)); }
 function verifyCsrf(): void { if (!hash_equals($_SESSION['csrf'] ?? '', $_POST['csrf'] ?? '')) abortWith('Session expirée. Veuillez recommencer.'); }
 function flash(string $message, string $type = 'success'): void { $_SESSION['flash'] = compact('message', 'type'); }
-function abortWith(string $message): never { flash($message, 'error'); header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? url())); exit; }
+function abortWith(string $message): never {
+    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+        http_response_code(422);
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => $message]);
+        exit;
+    }
+    flash($message, 'error');
+    header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? url()));
+    exit;
+}
 function requireLogin(): array
 {
     if (!$user = currentUser()) { flash('Connectez-vous pour continuer.', 'error'); redirect('login'); }

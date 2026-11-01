@@ -200,8 +200,14 @@ function publishMedia(PDO $db, array $config): never
 
     $stmt = $db->prepare('INSERT INTO media(user_id,type,title,description,category,visibility,status,file_path,original_name,mime_type,size,thumbnail_path) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)');
     $stmt->execute([$user['id'],$type,$title,trim($_POST['description'] ?? ''),$category,$visibility,$status,$path,$original,$mime,$size,$thumbnailPath]);
+    $mediaId = (int)$db->lastInsertId();
     createNotification($db, (int)$user['id'], 'publication', 'Contenu créé', '« '.$title.' » est maintenant enregistré dans votre bibliothèque.', '?page=my-media');
     flash($status === 'draft' ? 'Brouillon enregistré avec succès.' : 'Contenu publié avec succès.');
+    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => true, 'id' => $mediaId, 'redirect' => url('my-media')]);
+        exit;
+    }
     redirect('my-media');
 }
 
