@@ -22,8 +22,14 @@ menuButton?.addEventListener('click', () => {
   menuButton.setAttribute('aria-expanded', String(open));
   menuButton.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
 });
-mainNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => document.body.classList.remove('menu-visible')));
-document.addEventListener('keydown', event => { if (event.key === 'Escape') document.body.classList.remove('menu-visible'); });
+const closeMobileMenu = () => {
+  document.body.classList.remove('menu-visible');
+  menuButton?.setAttribute('aria-expanded', 'false');
+  menuButton?.setAttribute('aria-label', 'Ouvrir le menu');
+};
+mainNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMobileMenu(); });
+window.addEventListener('resize', () => { if (window.innerWidth > 800) closeMobileMenu(); });
 
 document.querySelectorAll('[data-confirm]').forEach(button => button.addEventListener('click', event => {
   if (!confirm(button.dataset.confirm)) event.preventDefault();
