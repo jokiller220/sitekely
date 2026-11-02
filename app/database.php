@@ -8,10 +8,14 @@ function connectDatabase(array $config): PDO
             throw new RuntimeException('L’extension PHP pdo_pgsql doit être activée pour utiliser Supabase.');
         }
 
+        $usesTransactionPooler = str_contains($config['supabase_dsn'], 'port=6543');
+
         return new PDO($config['supabase_dsn'], $config['supabase_user'], $config['supabase_password'], [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES => false,
+            // Le pooler transactionnel Supabase ne conserve pas les
+            // prepared statements entre deux requêtes.
+            PDO::ATTR_EMULATE_PREPARES => $usesTransactionPooler,
         ]);
     }
 
