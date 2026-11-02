@@ -57,6 +57,6 @@
 </header>
 <?php if ($flash): ?><div class="flash-toast <?= e($flash['type']) ?>" role="status"><span class="toast-icon"><?=icon($flash['type']==='error'?'x':'check',17)?></span><span><?= e($flash['message']) ?></span><button class="toast-close" aria-label="Fermer"><?=icon('x',15)?></button><span class="toast-progress"></span></div><?php endif ?>
 <?= $content ?>
-<script src="public/assets/app.js?v=10"></script>
+<script src="public/assets/app.js?v=11"></script>
 </body>
 </html>

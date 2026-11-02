@@ -17,6 +17,19 @@ themeButton?.addEventListener('click', () => {
 
 const menuButton = document.querySelector('#mobileMenu');
 const mainNav = document.querySelector('#mainNav');
+const mainNavAnchor = document.createComment('main navigation anchor');
+if (mainNav?.parentNode) mainNav.parentNode.insertBefore(mainNavAnchor, mainNav);
+
+const placeMainNav = () => {
+  if (!mainNav || !mainNavAnchor.parentNode) return;
+  if (window.innerWidth <= 800) {
+    if (mainNav.parentNode !== document.body) document.body.append(mainNav);
+  } else if (mainNav.parentNode !== mainNavAnchor.parentNode) {
+    mainNavAnchor.parentNode.insertBefore(mainNav, mainNavAnchor.nextSibling);
+  }
+};
+placeMainNav();
+
 menuButton?.addEventListener('click', () => {
   const open = document.body.classList.toggle('menu-visible');
   menuButton.setAttribute('aria-expanded', String(open));
@@ -29,7 +42,10 @@ const closeMobileMenu = () => {
 };
 mainNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMobileMenu(); });
-window.addEventListener('resize', () => { if (window.innerWidth > 800) closeMobileMenu(); });
+window.addEventListener('resize', () => {
+  placeMainNav();
+  if (window.innerWidth > 800) closeMobileMenu();
+});
 
 document.querySelectorAll('[data-confirm]').forEach(button => button.addEventListener('click', event => {
   if (!confirm(button.dataset.confirm)) event.preventDefault();
